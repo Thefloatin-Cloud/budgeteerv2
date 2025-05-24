@@ -25,6 +25,10 @@ const Index = () => {
   const [apiKey, setApiKey] = useState<string>("");
   const [activeTab, setActiveTab] = useState<string>("home");
   const [aiInitialPrompt, setAiInitialPrompt] = useState<string>("");
+  const [monthlyIncome, setMonthlyIncome] = useState<number>(() => {
+    const saved = localStorage.getItem("budgeteer-monthly-income");
+    return saved ? parseFloat(saved) : 0;
+  });
 
   useEffect(() => {
     // Load expenses from localStorage
